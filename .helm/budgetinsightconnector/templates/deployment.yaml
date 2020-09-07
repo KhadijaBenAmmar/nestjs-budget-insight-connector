@@ -52,10 +52,11 @@ spec:
               path: /ping
               port: 8080
             initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
-            periodSeconds:  {{ .Values.readinessProbe.periodSeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
             timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
             successThreshold: {{ .Values.readinessProbe.successThreshold }}
-            failureThreshold:  {{ .Values.readinessProbe.failureThreshold }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+          env:
           {{- range $k, $v := .Values.environmentVariables }}
             - name: {{ quote $k }}
               value: {{ quote $v }}
